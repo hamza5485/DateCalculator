@@ -1,0 +1,41 @@
+# EditorConfig - Cross Editor/IDE Settings (http://editorconfig.org)
+# vim:ft=ini ft=dosini
+# Filename: .editorconfig
+root = true
+
+[*]
+indent_style = tab
+indent_size = 4
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+tab_width = 4
+
+# JSON
+#  Often contain newlines inconsistently
+[*.json]
+indent_size = 2
+insert_final_newline = ignore
+
+# YAML
+[*.{yml,yaml}]
+indent_style = space
+indent_size = 2
+
+# Markdown
+[*.{md,markdown}]
+trim_trailing_whitespace = false
+indent_size = 2
+indent_style = space
+
+# Makefiles
+#  Must use hard tabs
+[Makefile]
+indent_style = tab
+
+# Minified files shouldn't be changed
+[**.min.*]
+indent_style = ignore
+insert_final_newline = ignore
+
