@@ -1,0 +1,9 @@
+{
+    "heading": "========== ~~~~~Date Calculator~~~~~ ==========",
+    "welcome": "Welcome to Date Calculator! \nA nifty tool that will help you calculate the distance in whole days between two dates!",
+    "explanation": "All you have to do is to input two dates in *DD/MM/YYYY* format (**important**) \nLet this program handle the rest!",
+    "format": "dd/mm/yyyy",
+    "firstDate": "Enter the first date",
+    "secondDate": "Enter the second date",
+    "dateInputErr": "You entered an incorrect date, please try again.\nMake sure you follow the dd/mm/yyyy format: "
+}
