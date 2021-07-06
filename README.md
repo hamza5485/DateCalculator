@@ -14,3 +14,6 @@ When testing your solution, use the following sample data to demonstrate your co
 1. 2/6/1983 to 22/6/1983 19 days
 2. 4/7/1984 to 25/12/1984 173 days
 3. 3/1/1989 to 3/8/1983 2036 days
+
+## How to run the code
+Go into project root and run `npm install` to isntall project dependencies (Testing framework). Then run `npm start` to execute the script.
