@@ -16,4 +16,5 @@ When testing your solution, use the following sample data to demonstrate your co
 3. 3/1/1989 to 3/8/1983 2036 days
 
 ## How to run the code
-Go into project root and run `npm install` to isntall project dependencies (Testing framework). Then run `npm start` to execute the script.
+Go into project root and run `npm start` to execute the script.
+Go into project root and run `npm test` to execute tests.
