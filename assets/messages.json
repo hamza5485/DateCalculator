@@ -1,10 +1,10 @@
 {
     "heading": "========== ~~~~~ ** Date Calculator ** ~~~~~ ==========",
     "welcome": "Welcome to Date Calculator! 📅\nA nifty tool that will help you calculate the distance in whole days between two dates!",
-    "explanation": "All you have to do is to input two dates in *DD/MM/YYYY* format (**important**) \nLet this program handle the rest!\nPress CTRL+C to kill at any time 🔫",
+    "explanation": "All you have to do is to input two dates between **01/01/1900** and **31/12/2999** in **DD/MM/YYYY** format (**important**) \nLet this program handle the rest!\nPress CTRL+C to kill at any time 🔫",
     "format": "dd/mm/yyyy",
     "firstDate": "Enter the first date",
     "secondDate": "Enter the second date",
-    "dateInputErr": "❌ You entered an incorrect date ❌\nMake sure you follow the dd/mm/yyyy format: ",
+    "dateInputErr": "❌ You entered an incorrect date ❌\nPlease make sure you: \n1. Follow dd/mm/yyyy format\n2. Stay between 01/01/1900 and 31/12/2999",
     "distance": "Distance between $date1$ and $date2$ is $distance$ days. \nBye 👋"
 }
