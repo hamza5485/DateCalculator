@@ -6,5 +6,5 @@
     "firstDate": "Enter the first date",
     "secondDate": "Enter the second date",
     "dateInputErr": "❌ You entered an incorrect date ❌\nPlease make sure you: \n1. Follow dd/mm/yyyy format\n2. Stay between 01/01/1900 and 31/12/2999",
-    "distance": "Distance between $date1$ and $date2$ is $distance$ days. \nBye 👋"
+    "distance": "Distance between $date1$ and $date2$ is $distance$ days. \nBye 👋\n"
 }

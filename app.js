@@ -1,11 +1,10 @@
 const IOManager = require("./lib/IOManager");
-const DateCalculator = require("./lib/DateCalculator");
 const messages = require("./assets/messages.json");
-const DateObject = require("./model/Date");
 const { colorEncode, COLORS } = require("./lib/PrettyLogs");
+const DateService = require("./lib/DateService");
 
 const io = new IOManager();
-const dateManager = new DateCalculator();
+const dateService = new DateService();
 
 /**
  * Main function
@@ -13,50 +12,54 @@ const dateManager = new DateCalculator();
 Main = async () => {
 	welcome();
 
-	let dateA = new DateObject(1); // id = 1
-	let dateB = new DateObject(2); // id = 2
-
-	dateA = await getDate(dateA);
-	dateB = await getDate(dateB);
+	dateA = await getDate(1); // date 1
+	dateB = await getDate(2); // date 2
 
 	io.closeManager();
 
-	const distance = dateManager.calcDistance(dateA.date, dateB.date);
+	const distance = dateService.calculateGap(dateA, dateB);
 	let result = messages.distance;
-	result = result.replace("$date1$", colorEncode(dateA.date, COLORS.MAGENTA));
-	result = result.replace("$date2$", colorEncode(dateB.date, COLORS.MAGENTA));
+	result = result.replace(
+		"$date1$",
+		colorEncode(dateA.toString(), COLORS.MAGENTA)
+	);
+	result = result.replace(
+		"$date2$",
+		colorEncode(dateB.toString(), COLORS.MAGENTA)
+	);
 	result = result.replace("$distance$", colorEncode(distance, COLORS.GREEN));
 	console.log(result);
 };
 
 /**
- * Gets date from user input and validates it  
- * @param {Date} dateObj empty Date Model 
+ * Gets date from user input and validates it
+ * @param {Date} dateObj empty Date Model
  * @returns {Date} Date model object with date and isValid boolean set
  */
-const getDate = async (dateObj) => {
-	let obj = dateObj;
-	let message =
-		obj.id === 1
-			? colorEncode(
-					`${messages.firstDate} (format: ${messages.format}):`,
-					COLORS.BLUE
-			  )
-			: colorEncode(
-					`${messages.secondDate} (format: ${messages.format}):`,
-					COLORS.BLUE
-			  );
-	while (!obj.isValid) {
-		const date = await io.requestInput(message);
-		const isValidDate = dateManager.isValidDate(date);
-		if (!isValidDate)
+const getDate = async (dateNo) => {
+	let isValid = false;
+	let date = null;
+	let message = "";
+	if (dateNo === 1)
+		message = colorEncode(
+			`${messages.firstDate} (format: ${messages.format}):`,
+			COLORS.BLUE
+		);
+	else if (dateNo === 2)
+		message = colorEncode(
+			`${messages.secondDate} (format: ${messages.format}):`,
+			COLORS.BLUE
+		);
+	while (!isValid) {
+		try {
+			const stringDate = await io.requestInput(message);
+			date = dateService.create(stringDate);
+			isValid = true;
+		} catch (err) {
 			message = colorEncode(messages.dateInputErr, COLORS.RED);
-		else {
-			obj.date = date;
-			obj.isValid = isValidDate;
 		}
 	}
-	return obj;
+	return date;
 };
 
 /**
