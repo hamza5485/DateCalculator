@@ -2,6 +2,7 @@ const IOManager = require("./lib/IOManager");
 const messages = require("./assets/messages.json");
 const { colorEncode, COLORS } = require("./lib/PrettyLogs");
 const DateService = require("./lib/DateService");
+const Date = require("./lib/DateService/Date"); 
 
 const io = new IOManager();
 const dateService = new DateService();
@@ -32,9 +33,9 @@ Main = async () => {
 };
 
 /**
- * Gets date from user input and validates it
- * @param {Date} dateObj empty Date Model
- * @returns {Date} Date model object with date and isValid boolean set
+ * Gets input from user and converts it into a Date object
+ * @param {Number} dateNo sequence of input (1 or 2)
+ * @returns {Date} 
  */
 const getDate = async (dateNo) => {
 	let isValid = false;
